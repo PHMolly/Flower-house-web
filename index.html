@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- RWD響應式必寫 -->
+
+    <title>Molly花室</title>
+    <link rel="icon" href="images/favicon.ico.png">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- 自己的CSS樣式要放最下面（因為權重較重）,上面是gotop的按鈕元素 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="box">
+        <h1 class="logo">
+            <img src="images/logo.png" alt="Molly花室">
+        </h1>
+        <!-- nav>(ul>li*3)+(ul>li*6) 快速縮寫可列出下面主架構-->
+        <nav>
+            <ul class="icon">
+                <li>
+                    <a href="#"><img src="images/icon-fb.svg" alt="連結至facebook"></a>
+                </li>
+                <li>
+                    <a href="#"></a><img src="images/icon-ig.svg" alt="連結至instagram"></a>
+                </li>
+                <li>
+                    <a href="#"></a><img src="images/icon-line.svg" alt="連結至line"></a>
+                </li>
+            </ul>
+
+            <ul class="menu">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#service">SERVICE</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#news">NEWS</a></li>
+                <li><a href="#video">VIDEO</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+
+        <!-- div.name>h2+h3 快速縮寫可列出下面主架構-->
+        <div class="name">
+            <h3>Flowers house</h3>
+            <h2>莫莉花室</h2>
+
+        </div>
+        <figure>
+            <img src="images/banner.png" alt="花">
+            <!--要讓花朵往下溢出(不露出花尾）就要找回爸爸header在CSS裡加入overflow)-->
+        </figure>
+        <div class="bg-video">
+            <video src="images/Flower-31953.mp4" loop autoplay muted></video>
+
+        </div>
+    </header>
+    <!-- main>section*5>h1 快速縮寫可列出下面主架構-->
+    <main>
+        <section id="service" class="lightblue">
+            <h1 class="box">SERVICE</h1>
+            <!--要同時改的相同單字,快速鍵“command+D"將全部需要改的地方選取後可以一起改-->
+            <div class="service-list">
+                <article class="box" data-move-y="-200px">
+                    <a href="#">
+                        <h2>SERVICE NAME 1</h2>
+                        <!-- lorem10---可列出假文案且指定單字數量-->
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, doloribus?</p>
+                    </a>
+                </article>
+                <article class="box" data-move-y="-200px">
+                    <a href="#">
+
+                        <h2>SERVICE NAME 2</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, doloribus?</p>
+                    </a>
+                </article>
+
+                <article class="box" data-move-y="-200px">
+                    <a href="#">
+
+                        <h2>SERVICE NAME 3</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, doloribus?</p>
+                    </a>
+                </article>
+            </div>
+
+        </section>
+        <section id="about">
+            <div class="box">
+                <h1 class="box">ABOUT US</h1>
+                <p class="scrollbox">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel consequuntur natus, ab, maxime labore dicta optio eveniet porro, amet ex dolore deserunt! Culpa quisquam tenetur reprehenderit aut blanditiis incidunt corrupti, illo porro officia!
+                    Ratione doloremque ipsam saepe assumenda id dolor? Magni, culpa reprehenderit. Eos ipsum fugiat tempora molestias quam molestiae quisquam eaque quas aut, ratione commodi. Aperies ipsa similique vitae!Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Vel consequuntur natus, ab, maxime labore dicta optio eveniet porro, amet ex dolore deserunt! Culpa quisquam tenetur reprehenderit aut blanditiis incidunt corrupti, illo porro officia! Ratione doloremque ipsam saepe
+                    assumenda id dolor? Magni, culpa reprehenderit. Eos ipsum fugiat tempora molestias quam molestiae quisquam eaque quas aut, ratione commodi. Aperies ipsa similique vitae!Aperies ipsa similique vitae!Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Vel consequuntur natus, ab, maxime labore dicta optio eveniet porro, amet ex dolore deserunt! Culpa quisquam tenetur reprehenderit aut blanditiis incidunt corrupti, illo porro officia! Ratione doloremque ipsam saepe
+                    assumenda id dolor? Magni, culpa reprehenderit. Eos ipsum fugiat tempora molestias quam molestiae quisquam eaque quas aut, ratione commodi. Aperies ipsa similique vitae!Aperies ipsa similique vitae!Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Vel consequuntur natus, ab, maxime labore dicta optio eveniet porro, amet ex dolore deserunt! Culpa quisquam tenetur reprehenderit aut blanditiis incidunt corrupti, illo porro officia! Ratione doloremque ipsam saepe
+                    assumenda id dolor? Magni, culpa reprehenderit. Eos ipsum fugiat tempora molestias quam molestiae quisquam eaque quas aut, ratione commodi. Aperies ipsa similique vitae!Aperies ipsa similique vitae!Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Vel consequuntur natus, ab, maxime labore dicta optio eveniet porro, amet ex dolore deserunt! Culpa quisquam tenetur reprehenderit aut blanditiis incidunt corrupti, illo porro officia! Ratione doloremque ipsam saepe
+                    assumenda id dolor? Magni, culpa reprehenderit. Eos ipsum fugiat tempora molestias quam molestiae quisquam eaque quas aut, ratione commodi. Aperies ipsa similique vitae!Aperies ipsa similique vitae!Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Vel consequuntur natus, ab, maxime labore dicta optio eveniet porro, amet ex dolore deserunt! Culpa quisquam tenetur reprehenderit aut blanditiis incidunt corrupti, illo porro officia! Ratione doloremque ipsam saepe
+                    assumenda id dolor? Magni, culpa reprehenderit. Eos ipsum fugiat tempora molestias quam molestiae quisquam eaque quas aut, ratione commodi. Aperies ipsa similique vitae!Aperies ipsa similique vitae!Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Vel consequuntur natus, ab, maxime labore dicta optio eveniet porro, amet ex dolore deserunt! Culpa quisquam tenetur reprehenderit aut blanditiis incidunt corrupti, illo porro officia! Ratione doloremque ipsam saepe
+                    assumenda id dolor? Magni, culpa reprehenderit. Eos ipsum fugiat tempora molestias quam molestiae quisquam eaque quas aut, ratione commodi. Aperies ipsa similique vitae!</p>
+            </div>
+        </section>
+        <section id="news" class="lightgray">
+            <!--因為news通常會與後台串接,所以背景無法固定,盡量不要放前面-->
+            <h1>NEWS</h1>
+            <!-- div>(article>(figure>img)+h2+p+a)*3 -->
+            <div class="news-list">
+                <article class="box" data-move-y="-200px">
+                    <figure><img src="./images/pt_news0.jpg" alt="花藝桌子"></figure>
+                    <h2>NEW TITLE</h2>
+                    <p>看到弄這位發現這樣的覺得上覺是，喔喔仔細不是沒啊啊啊。 感謝太好真ㄉ，新居搬。尊重意外的那遊戲我剛。到有點個月都所以就的名字不太好⋯以還雄嗚嗚嗚處刑成的⋯還是會的遺書了一，照麼覺得沒還是可，不下茶我忘記我同看們看到的，都大概就的⋯ 就當公我就是那點意到，我們都出來所大家都有要，謝謝他就種就我今希望他，下次，見外的這裡，他們的來的還不還好嗎。賣真的去做不過然後網址，德天不夢想，的安還是不很認真結束，注意也沒的到底要所以是？
+                    </p>
+                    <a href="#">more</a>
+                </article>
+                <article class="box" data-move-y="-200px">
+                    <figure><img src="./images/pt_news1.jpg" alt="手持花朵"></figure>
+                    <h2>NEW TITLE</h2>
+                    <p>看到弄這位發現這樣的覺得上覺是，喔喔仔細不是沒啊啊啊。 感謝太好真ㄉ，新居搬。尊重意外的那遊戲我剛。到有點個月都所以就的名字不太好⋯以還雄嗚嗚嗚處刑成的⋯還是會的遺書了一，照麼覺得沒還是可，不下茶我忘記我同看們看到的，都大概就的⋯ 就當公我就是那點意到，我們都出來所大家都有要，謝謝他就種就我今希望他，下次，見外的這裡，他們的來的還不還好嗎。賣真的去做不過然後網址，德天不夢想，的安還是不很認真結束，注意也沒的到底要所以是？
+                    </p>
+                    <a href="#">more</a>
+                </article>
+                <article class="box" data-move-y="-200px">
+                    <figure><img src="./images/pt_news2.jpg" alt="玫瑰花束"></figure>
+                    <h2>NEW TITLE</h2>
+                    <p>看到弄這位發現這樣的覺得上覺是，喔喔仔細不是沒啊啊啊。 感謝太好真ㄉ，新居搬。尊重意外的那遊戲我剛。到有點個月都所以就的名字不太好⋯以還雄嗚嗚嗚處刑成的⋯還是會的遺書了一，照麼覺得沒還是可，不下茶我忘記我同看們看到的，都大概就的⋯ 就當公我就是那點意到，我們都出來所大家都有要，謝謝他就種就我今希望他，下次，見外的這裡，他們的來的還不還好嗎。賣真的去做不過然後網址，德天不夢想，的安還是不很認真結束，注意也沒的到底要所以是？
+                    </p>
+                    <a href="#">more</a>
+                </article>
+            </div>
+
+
+        </section>
+        <section id="video" class="lightpink">
+            <h1 class="box">VIDEO</h1>
+            <div class="box" data-move-y="-200px">
+                <video src="./images/Planter.mp4" controls poster="images/video.jpg">
+            <!--controls為顯示＿影片控制器, autoplay要加上muted才會在瀏覽器顯示自動播放, loop會連續播放
+                （通常下面不會加,除非是當背景用的)-->    
+                您的瀏覽器不支援影片,請升級您的瀏覽器
+            <!--IE瀏覽器很常不支援,所以如果遇到瀏覽器沒出現就會顯示這段文字-->
+            </video>
+            </div>
+        </section>
+        <section id="contact" class="lightblue">
+            <h1 class="box">CONTACT US</h1>
+            <form id="contact_form" name="contact_form" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required="required" autocomplete="on" placeholder="茉莉劉" title="請輸入姓名">
+                <label for="tel">Mobile:</label>
+                <input type="tel" name="tel" id="tel" autocomplete="on" placeholder="請輸入電話" title="請輸入電話">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" autocomplete="on" placeholder="請輸入電子郵箱" title="請輸入電子郵箱">
+                <label for="message">Message:</label>
+                <textarea name="message" id="message" rows="15"></textarea>
+                <button>
+                    <span>SUBMIT</span>
+                </button>
+
+            </form>
+
+
+        </section>
+
+    </main>
+
+    <footer>
+        <h1 class="logo">
+            <img src="images/logo.png" alt="Molly花室">
+        </h1>
+        <!-- nav>(ul>li*3)+(ul>li*6) 快速縮寫可列出下面主架構-->
+        <nav>
+            <ul class="menu">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#news">NEWS</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#service">SERVICE</a></li>
+                <li><a href="#video">VIDEO</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+        <small>copyright &copy;2021 Molly花室</small>
+        <div id="gotop"><i class="fas fa-chevron-circle-up"></i></div>
+    </footer>
+    <!-- jQuery原生碼 CDN（必填） -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- smoove js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smoove/0.2.10/jquery.smoove.min.js"></script>
+    <!-- js邏輯是依序排順序,故myscript.js需排最後才會作動-->
+
+    <script src="./script/myscript.js"></script>
+</body>
+
+</html>

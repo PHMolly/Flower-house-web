@@ -1,0 +1,951 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&family=WindSong&display=swap');
+
+/* 連線Google fonts的語法,只能放在UTF-8之下, 這個寫完後下面font family要在註明哪個字體 */
+
+@font-face {
+    font-family: Bajurie;
+    src: url(webfont/Bajurie.ttf);
+    /* 加入網頁字型 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* RWD模式建立＿不累加邊框(border)與內距(padding)的寬度 */
+}
+
+body {
+    font-family: "Noto Sans TC", Arial, Helvetica, "黑體-繁", "Helvetica TC", "微軟正黑體", "Microsoft JhengHei", sans-serif;
+    /* 系統會先偵測英文字>中文字, 故設定為英文後需要再手動加入繁體字體,但因為網頁有可能系統語言不同（ex日本網站）,
+所以需要再加上繁體字的英文翻譯才算完整 */
+    /* 如果有用noto sans(思源黑體),位置必須在所有字體最前面,避免noto sans不作動 */
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+
+/* 共用背景顏色--設定共用色後,如果提交給後端工程師後,要再改顏色就必須從html改 */
+
+.lightblue {
+    background-color: rgba(176, 220, 247, 0.226);
+}
+
+.lightgray {
+    background-color: rgba(211, 206, 206, 0.534);
+}
+
+.lightpink {
+    background-color: rgba(240, 182, 191, 0.356);
+}
+
+
+/* 檔頭區 */
+
+header {
+    position: relative;
+    background-color: rgba(238, 177, 187, 0.808);
+    height: 100vh;
+    /* 單位vh：是視窗相對高度 */
+    border: solid 25px #fff;
+    overflow: hidden;
+}
+
+header .logo {
+    /* 由於頁尾和header是一樣的MENU語法,所以複製給footer後需要將前面header .logo/menu定義 */
+    width: 75px;
+    position: absolute;
+    /* 制定position用意：為了後續要將此部分做動態設計,假設沒有可僅用margin建立 */
+    left: 25px;
+    top: 25px;
+    z-index: 999;
+    animation: logo 3s;
+    /* CSS動畫效果需自行定義再加上下面的@keyframes */
+}
+
+@keyframes logo {
+    from {
+        left: -100px;
+    }
+    to {
+        left: 40px;
+    }
+}
+
+nav ul {
+    /* 階層選擇器 */
+    list-style-type: none;
+    /* 移除ul預設的點點記號 */
+    z-index: 999;
+    /* 排列順序＿故意將NAV容器排最前面--數字越大排列越前面 */
+}
+
+
+/*nav li {/* 底下nav內的區間都有inline-block,寫在這區將所有區間都同此設定,下面就可以不用重複寫了  */
+
+
+/* display: inline-block;/* inline-block會自動抓裡面內容（兒子）的尺寸 --10/30取消forRWD*/
+
+.icon {
+    /* 可以下面li,a都設定好再來補上position定義----Position在ＣＳＳ裡權重最重 */
+    position: absolute;
+    /* 絕對定位＝指定要去哪個位置（座標位置） */
+    /* right: 40px; */
+    top: 40px;
+    animation: icon 2s forwards;
+}
+
+@keyframes icon {
+    form {
+        right: -200px;
+    }
+    to {
+        right: 40px;
+    }
+}
+
+.icon li {
+    /* 表示指定icon裡的li去定義CSS */
+    display: inline-block;
+    width: 35px;
+    /* svg圖檔預設滿版,所以需要定義他們的寬度 */
+    margin: 0 5px;
+    /* 外距上下0, 左右5 */
+    opacity: .7;
+    /* 整體包含字都變半透明效果70% */
+}
+
+header .menu {
+    /* 可以下面li,a都設定好再來補上position定義 */
+    position: absolute;
+    right: 40px;
+    top: 100px;
+    animation: menu 3s backwards;
+}
+
+@keyframes menu {
+    from {
+        right: -600px;
+    }
+    to {
+        right: 40px;
+    }
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu a {
+    /* 兒子 a預設沒有尺寸,故要建立定義給他 */
+    display: inline-block;
+    width: 100px;
+    /*height: 35px;
+    line-height: 35px;/* 行高---10/30ＲＷＤ設定取消此共用 */
+    text-align: center;
+    /* 文字置中 */
+    color: rgb(77, 77, 78);
+    /* 文字顏色 */
+    text-decoration: none;
+    /* 文字裝飾預設有底線, none就會把這底線取消 */
+    border: solid 1px transparent;
+    /* （假動作）給一個透明的邊框,滑鼠移上去才不會跑動 */
+}
+
+.menu a:hover {
+    /* 懸停效果 */
+    border: solid 1px gray;
+    background-color: rgba(245, 222, 179, 0.5);
+    /* rgba僅背景有半透明效果,文字會維持原色 */
+}
+
+
+/*手機版＿Small devices */
+
+@media (max-width: 767px) {
+    .menu li {
+        display: block;
+    }
+    .menu a {
+        height: 45px;
+        line-height: 45px;
+        text-align: righy;
+    }
+}
+
+
+/*平板＿Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) {
+    .menu li {
+        display: block;
+    }
+    .menu a {
+        height: 45px;
+        line-height: 45px;
+    }
+}
+
+
+/*桌機版＿Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) {
+    .menu li {
+        display: inline-block;
+    }
+    .menu a {
+        height: 35px;
+        line-height: 35px;
+    }
+}
+
+.name {
+    position: absolute;
+    top: 45%;
+    left: 20%;
+    animation: name 5s;
+}
+
+@keyframes name {
+    0% {
+        top: 0;
+        left: -300px;
+    }
+    25% {
+        top: 60%;
+        left: 20%;
+    }
+    50% {
+        top: 0;
+        left: 30%;
+    }
+    100% {
+        top: 45%;
+        left: 20%;
+    }
+}
+
+.name h2 {
+    font-size: 3rem;
+    /*  3rem= 3*16px(瀏覽器預設字體大小）=48px */
+    color: rgb(94, 58, 5);
+    font-weight: 400;
+    /* 改變h2預設粗體, 指定要用思源黑體的100(這邊指定需要在套入的google font內）,否則會無效 */
+}
+
+.name h3 {
+    font-size: 2rem;
+    font-family: 'WindSong', cursive;
+    color: rgb(94, 58, 5);
+    line-height: 1rem;
+}
+
+
+/*手機版＿Small devices */
+
+@media (max-width: 767px) {
+    .name {
+        top: 40%;
+        left: 40px;
+        animation: name 3s;
+    }
+    @keyframes name {
+        from {
+            left: -200px;
+        }
+        to {
+            left: 40px;
+        }
+    }
+    .name h2 {
+        font-size: 2.5rem;
+    }
+    .name h3 {
+        font-size: 2rem;
+    }
+}
+
+header figure {
+    /*width: 40%;/* 一開始有定義RWD,所以這裡寬度會等比例縮放 */
+    position: absolute;
+    /*right: 0;*/
+    bottom: -50px;
+    z-index: 998;
+    animation: banner 2s both;
+}
+
+@keyframes banner {
+    from {
+        right: -400px;
+    }
+    to {
+        right: 0;
+    }
+}
+
+
+/*手機版＿Small devices */
+
+@media (max-width: 767px) {
+    header figure {
+        width: 70%;
+        bottom: 0;
+    }
+}
+
+
+/*平板＿Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) {
+    header figure {
+        width: 55%;
+    }
+}
+
+
+/*桌機版＿Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) {
+    header figure {
+        width: 40%;
+    }
+}
+
+.bg-video {
+    height: 100vh;
+}
+
+.bg-video video {
+    /* 寬高都設定100%,cover偵測比例決定套用寬100%或高100% */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* opacity: .3; 以下為濾鏡效果*/
+    filter: opacity(30%) saturate(60%) brightness(120%);
+}
+
+
+/*手機版＿Small devices */
+
+@media (max-width: 767px) {
+    .bg-video {
+        display: none;
+    }
+}
+
+
+/*平板＿Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) {
+    .bg-video {
+        display: none;
+    }
+}
+
+
+/*桌機版＿Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) {
+    .bg-video {
+        display: block;
+    }
+}
+
+
+/* 主要內容區共用 */
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 父層預設拉伸, 現在再次設定就會變成無拉伸且水平置中 */
+    height: 100vh;
+}
+
+section h1 {
+    color: #444;
+    font-size: 2.5rem;
+    margin: 30px 0;
+    padding-top: 10px 20px;
+    border-top: solid 3px rgba(194, 192, 192, 0.815);
+}
+
+
+/*手機版＿Small devices */
+
+@media (max-width: 767px) {
+    #video,
+    #contact {
+        height: auto;
+        padding-bottom: 30px;
+    }
+}
+
+
+/*平板＿Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) {
+    #video,
+    #contact {
+        height: auto;
+        padding-bottom: 30px;
+    }
+}
+
+
+/*桌機版＿Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) {
+    #service,
+    #about,
+    #news,
+    #video,
+    #contact {
+        height: 100vh;
+    }
+}
+
+
+/* service/news共用區 */
+
+.service-list,
+.news-list {
+    /* service/new區寬度一致,所以可以寫在一起並用逗號共用表示 */
+    display: flex;
+    width: 80%;
+}
+
+.service-list article,
+.news-list article {
+    /* service和new區以下條件一致,故可以寫在一起並逗號共用表示 */
+    flex: 1;
+    /*單一數字為定義伸展比*/
+    margin: 0 20px;
+    height: 75vh;
+}
+
+.service-list h2,
+.news-list h2 {
+    font-family: Bajurie;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    margin: 10px 0;
+}
+
+
+/* ------SERVICE區------ */
+
+.service-list article {
+    position: relative;
+    /*定義位置後“寬度”和“高度”會消失,所以須在下面再加上”伸展比“*/
+    background-size: cover;
+    /* 指定背景圖片完整覆蓋區域 */
+    background-position: center;
+    /* 指定背景圖片置中 */
+    border-radius: 25px;
+    /* 指定圓角框 */
+    overflow: hidden;
+    /* 由於上面有指定圓角框,所以背景會需要用overflow讓他隱藏 */
+}
+
+.service-list article:first-child {
+    /*可以指定第幾個小孩去改他的CSS*/
+    background-image: url('images/pt_svc0.jpg');
+}
+
+.service-list article:nth-child(2) {
+    /*可以指定第2個小孩去改他的CSS*/
+    /*flex: 2;--->如果希望中間區塊比較大, 可以用flex去調整*/
+    background-image: url('images/pt_svc1.jpg');
+}
+
+.service-list article:last-child {
+    background-image: url('images/pt_svc2.jpg');
+}
+
+.service-list a {
+    position: absolute;
+    /*定義位置後“寬度”和“高度”會消失,所以須在下面再加上指定左+下間距和版面寬度*/
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.281);
+    color: blanchedalmond;
+    text-decoration: none;
+}
+
+.service-list h2 {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 10px 0;
+}
+
+.service-list p {
+    /*單行+省略號的專屬語法,三個必須同時出現（背起來）*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* 文字不換行 */
+    font-family: Bajurie;
+    font-size: 1rem;
+}
+
+
+/*手機版＿Small devices */
+
+@media (max-width: 767px) {
+    .service-list {
+        flex-direction: column;
+        height: 80vh;
+    }
+    .service-list article {
+        margin: 20px 0;
+    }
+    .service-list h2 {
+        font-size: 1.2rem;
+    }
+}
+
+
+/*平板＿Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) {
+    .service-list {
+        flex-direction: column;
+        height: 80vh;
+    }
+    .service-list article {
+        margin: 20px 0;
+    }
+}
+
+
+/*桌機版＿Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) {
+    .service-list {
+        flex-direction: row;
+    }
+    .service-list article {
+        margin: 0 20px;
+    }
+}
+
+
+/*------ ABOUT區 ------- */
+
+#about {
+    background-image: url(./images/pt_about.jpg);
+    background-size: cover;
+    /*滿版覆蓋*/
+    background-attachment: fixed;
+    /*背景固定,不隨著捲軸滾動*/
+}
+
+#about div {
+    display: flex;
+    /*自動延展至父層長度*/
+    flex-direction: column;
+    /*原預設水平, 將主軸改成:垂直*/
+    align-items: center;
+    /*原預設拉伸,指定沒有拉伸改成”居中“預設就會被覆蓋*/
+    width: 55%;
+    height: 100vh;
+    background-color: rgba(100, 148, 237, 0.26);
+}
+
+
+/* #about p{ 
+    /*margin: 0 10% 15%; 整理往下移,避免重複多寫*/
+
+
+/*overflow: auto;整理往下移,避免重複多寫*/
+
+
+/*手機版＿Small devices */
+
+@media (max-width: 767px) {
+    #about div {
+        width: 95%;
+    }
+}
+
+
+/*平板＿Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) {
+    #about div {
+        width: 90%;
+    }
+}
+
+
+/*桌機版＿Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) {
+    #about div {
+        width: 55%;
+    }
+}
+
+
+/*------ Scrollbox區 ------- */
+
+.scrollbox {
+    /*position: relative;*/
+    width: 80%;
+    height: 80vh;
+    margin: 0 10% 15%;
+    padding: 10px;
+    overflow: auto;
+    /*auto預設會自動使用捲軸*/
+    /* box-shadow:0 2px 10px rgba(#000,.5); 取消陰影 */
+    color: rgb(245, 244, 244);
+}
+
+
+/* 整個滾動條 */
+
+.scrollbox::-webkit-scrollbar {
+    /* 添加前綴webkit為試驗性質語法 */
+    width: 10px;
+    background: rgba(77, 76, 76, 0.295);
+}
+
+
+/* 整個水平滾動條 */
+
+.scrollbox::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+
+/* 滾動條上/下/左/右結束按鈕 */
+
+.scrollbox::-webkit-scrollbar-button {
+    width: 10px;
+    height: 10px;
+    background: rgb(147, 192, 243);
+}
+
+
+/* 旋鈕部分拖動 */
+
+.scrollbox::-webkit-scrollbar-thumb {
+    background: rgb(95, 95, 95);
+}
+
+
+/* 右下角部分 */
+
+.scrollbox::-webkit-scrollbar-corner {
+    background: #ddd;
+}
+
+
+/* ---------NEWS區--------- */
+
+.news-list article {
+    background-color: rgba(99, 99, 99, 0.199);
+    box-shadow: 2px 2px 5px rgba(68, 68, 68, 0.493);
+    /*陰影效果--> box-shadow:x y 模糊的程度 顏色*/
+    color: #444;
+    overflow: hidden;
+    border-radius: 25px 25px 0 0;
+    /*圓角框*/
+}
+
+.news-list figure {
+    height: 40%;
+    overflow: hidden;
+}
+
+.news-list figure img {
+    /* 圖片置中語法（背起來） */
+    height: 100%;
+    object-fit: cover;
+    /* 自動延展尺寸 */
+}
+
+.news-list h2 {
+    margin: 20px 30px;
+    padding-bottom: 20px;
+    text-align: center;
+    border-bottom: 1px solid #888;
+}
+
+.news-list p {
+    margin: 0 50px;
+    text-align: justify;
+    /* 齊行--中文字較英文適合 */
+    /*多行+省略號的專屬語法（背起來）*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+}
+
+.news-list a {
+    display: block;
+    width: 5rem;
+    height: 2rem;
+    /* rem只能用於與文字延展且不影響主要排版, 如果區塊尺寸要用伸展比 */
+    line-height: 1.7rem;
+    /* 行高設定 */
+    margin: 30px auto;
+    border: 1px solid #666;
+    text-align: center;
+    text-decoration: none;
+    color: #444;
+    background-color: rgba(255, 158, 179, 0.452);
+    border-radius: 15px;
+    /* 指定圓角框 */
+}
+
+
+/*手機版＿Small devices */
+
+@media (max-width: 767px) {
+    .news-list article:last-child {
+        display: none;
+    }
+}
+
+
+/*平板＿Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) {
+    .news-list article:last-child {
+        display: none;
+    }
+}
+
+
+/*桌機版＿Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) {
+    .news-list article:last-child {
+        display: block;
+    }
+}
+
+
+/* ---------VIDEO區--------- */
+
+
+/*手機版＿Small devices */
+
+@media (max-width: 767px) {
+    #video div {
+        width: 90%;
+    }
+    #video video {
+        width: 90%;
+        object-fit: contain;
+    }
+}
+
+
+/*平板＿Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) {
+    #video div {
+        width: 90%;
+        text-align: center;
+    }
+    #video video {
+        width: 90%;
+        object-fit: contain;
+    }
+}
+
+
+/*桌機版＿Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) {
+    #video div {
+        height: 75vh;
+        /* 影片有等比例的問題, 故影片用高度來設定比較安全 */
+        width: auto;
+        /*為了讓video和播放器同寬,自動等比例*/
+    }
+    #video video {
+        /* 置中語法（背起來） */
+        height: 100%;
+        object-fit: contain;
+        /* 增加或減少載入物件的寬度及高度(維持原比例)直到放得進所定義的元素寬高 */
+    }
+}
+
+
+/* ---------CONTACT區--------- */
+
+#contact_form {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+
+#contact_form label {
+    color: rgba(22, 76, 167, 0.6);
+}
+
+#contact_form input,
+#message {
+    border: 1px solid rgb(109, 109, 110);
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+
+/* CSS button hover懸停特效 */
+
+button {
+    /* position: relative;
+  outline: none; */
+    margin: 0 auto;
+    text-decoration: none;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* text-transform: uppercase; */
+    height: 60px;
+    width: 210px;
+    /* opacity: 1; */
+    background-color: #ffffff;
+    border: 1px solid rgba(22, 76, 167, 0.6);
+}
+
+button span {
+    color: rgba(22, 76, 167, 1);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+}
+
+button:hover {
+    animation: rotate 0.7s ease-in-out both;
+}
+
+button:hover span {
+    animation: storm 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+    25% {
+        transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+    50% {
+        transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+    75% {
+        transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+    100% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+}
+
+@keyframes storm {
+    0% {
+        transform: translate3d( 0, 0, 0) translateZ(0);
+    }
+    25% {
+        transform: translate3d( 4px, 0, 0) translateZ(0);
+    }
+    50% {
+        transform: translate3d( -3px, 0, 0) translateZ(0);
+    }
+    75% {
+        transform: translate3d( 2px, 0, 0) translateZ(0);
+    }
+    100% {
+        transform: translate3d( 0, 0, 0) translateZ(0);
+    }
+}
+
+
+/* ---------置頂按鈕區--------- */
+
+#gotop {
+    display: none;
+    /* 一開始就不會出現置頂按鈕 */
+    position: fixed;
+    bottom: 135px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 50px;
+    line-height: 45px;
+    /* background-color: rgba(194, 192, 192, 0.815); */
+}
+
+
+/* ---------FOOTER區--------- */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    /* 主轴元素的多种排列方式(對齊/平均), space-between: 貼齊start/end*/
+    align-items: center;
+}
+
+footer h1 {
+    width: 75px;
+    margin: 20px;
+}
+
+small {
+    color: #666;
+    margin-right: 20px;
+}
+
+
+/*手機版＿Small devices */
+
+@media (max-width: 767px) {
+    #contact form {
+        width: 65%;
+    }
+    footer .menu {
+        display: none;
+    }
+}
+
+
+/*平板＿Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) {
+    #contact form {
+        width: 55%;
+    }
+    footer .menu {
+        display: none;
+    }
+}
+
+
+/*桌機版＿Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) {
+    #contact form {
+        width: 35%;
+    }
+    footer .menu {
+        display: block;
+    }
+}
